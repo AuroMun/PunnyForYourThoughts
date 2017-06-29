@@ -1,4 +1,7 @@
 var highlighted = 1;
+var dictionary = new Typo("en_US");
+var is_spelled_correctly = dictionary.check("mispelled");
+console.log(is_spelled_correctly);
 function myFunction() {
     var searchterm = document.getElementById("mySearch").value;
     document.getElementById('button1').style.border = "2px solid #f44336"
