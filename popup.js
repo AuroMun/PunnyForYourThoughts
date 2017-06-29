@@ -1,5 +1,9 @@
+var highlighted = 1;
 function myFunction() {
     var searchterm = document.getElementById("mySearch").value;
+    document.getElementById('button1').style.border = "2px solid #f44336"
+    document.getElementById('button2').style.border = "2px solid #e7e7e7"
+    highlighted = 1;
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -16,6 +20,9 @@ function myFunction() {
 }
 function yourFunction() {
     var searchterm = document.getElementById("mySearch").value;
+    document.getElementById('button2').style.border = "2px solid #f44336"
+    document.getElementById('button1').style.border = "2px solid #e7e7e7"
+    highlighted = 2;
     var settings = {
       "async": true,
       "crossDomain": true,
@@ -30,9 +37,14 @@ function yourFunction() {
       }
     });
 }
+function perfSearch() {
+  if(highlighted==1)myFunction();
+  else yourFunction();
+}
 ('DOMContentLoaded', function() {
   myFunction();
 });
 
 document.getElementById('button1').addEventListener('click', myFunction);
 document.getElementById('button2').addEventListener('click', yourFunction);
+document.getElementById('mySearch').addEventListener('keyup', perfSearch);
