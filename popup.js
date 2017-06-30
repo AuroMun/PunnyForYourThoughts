@@ -36,6 +36,8 @@ function yourFunction() {
       console.log(response);
       $("#wordlist").html('');
       for(var i=0; i<Math.min(response.length, 1000000); i++){
+        //console.log(response[i].word, dictionary.check(response[i].word))
+        if(dictionary.check(response[i].word))
         $("#wordlist").append('<li class="collection-item">'+response[i].word+'</li>');
       }
     });
